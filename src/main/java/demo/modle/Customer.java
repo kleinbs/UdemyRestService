@@ -1,23 +1,37 @@
 package demo.modle;
 
+import org.springframework.data.annotation.Id;
+
 /**
- * Created by brianklein on 9/18/15.
+ * Created by Brian Klein on 9/18/15.
  */
 public class Customer {
 
+    @Id
     private long id;
-    private String name;
+    private String firstName;
+    private String lastName;
 
-    public Customer(long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String toString(){
+        return String.format("Customer[id=%s, firstName='%s', lastName='%s']",
+                id, firstName, lastName);
+
     }
 }
